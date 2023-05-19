@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <pthread.h>
-// testing
+
 #define BUFSIZE 4096
 
 void error(char *msg) {

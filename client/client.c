@@ -20,7 +20,7 @@ void send_file(FILE *fp, int sockfd)
     {
         if (send(sockfd,data,sizeof(data),0)==-1)
         {
-            perror("[-]Error in sending data");
+            perror("C:[-]Error in sending data");
             exit(1);
         }
         bzero(data,SIZE);
@@ -40,10 +40,10 @@ void *sendOnePart(void *args)
      sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0 )
     {
-        perror("[-]Error in socket");
+        perror("C:[-]Error in socket");
         exit(1);
     }
-    printf("[+]Server socket created.\n");
+    printf("C:[+]Server socket created.\n");
 
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = actual_args->port;
@@ -52,23 +52,23 @@ void *sendOnePart(void *args)
     e = connect(sockfd, (struct sockaddr*)&server_addr, sizeof(server_addr));
     if (e == -1)
     {
-        perror("[-]Error in connecting");
+        perror("C:[-]Error in connecting");
         exit(1);
     }
-    printf("[+]Connected to server On Port:%d\n",actual_args->port);
+    printf("C:[+]Connected to server On Port:%d\n",actual_args->port);
 
     fp = fopen(filename,"r");
     if (fp==NULL)
     {
-        perror("[-]Error in reading file.");
+        perror("C:[-]Error in reading file.");
         exit(1);
     }
 
     send_file(fp,sockfd);
-    printf("[+]File data send successfully...\n");
+    printf("C:[+]File data send successfully...\n");
 
     close(sockfd);
-    printf("[+]Disconnected from the server.\n");
+    printf("C:[+]Disconnected from the server.\n");
     
     free(actual_args);
 

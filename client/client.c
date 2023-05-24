@@ -29,7 +29,7 @@ int main()
     int sockfd;
     struct sockaddr_in server_addr;
     FILE *fp;
-    char *filename = "Spotify.txt";
+    char *filename = "file1.txt";
 
      sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0 )

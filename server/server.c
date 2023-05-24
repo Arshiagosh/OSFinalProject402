@@ -9,7 +9,7 @@ void write_file(int sockfd)
 {
     int n;
     FILE *fp;
-    char *filename = "file.txt";
+    char *filename = "file2.txt";
     char buffer[SIZE];
     
     
@@ -65,7 +65,7 @@ int main()
     }
     printf("[+]Binding successful.\n");
 
-    e = listen(sockfd,10);
+    e = listen(sockfd,1000);
     if (e==0)
     {
         printf("[+]Listening...\n");

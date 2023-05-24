@@ -1,4 +1,0 @@
-main: main.c
-	gcc main.c -o MTFT.out -pthread 
-clean:
-	rm *.o *.out *.txt

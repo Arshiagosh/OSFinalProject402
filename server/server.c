@@ -4,7 +4,7 @@
 #include <arpa/inet.h>
 
 #define SIZE 1024
-#define PORT 8080
+
 
 void write_file(int sockfd, char* destinationPath)
 {
@@ -38,7 +38,8 @@ void write_file(int sockfd, char* destinationPath)
 int main(int argc, char *argv[])
 {
     char *ip = "127.0.0.1";
-    int port = PORT;
+    int port = atoi(argv[2]);
+    printf("%d",port);
     int e;
 
     int sockfd,new_sock;
@@ -69,7 +70,7 @@ int main(int argc, char *argv[])
     e = listen(sockfd,1000);
     if (e==0)
     {
-        printf("[+]Listening...\n");
+        printf("[+]Listening on Port:%d\n",port);
     }
     else
     {

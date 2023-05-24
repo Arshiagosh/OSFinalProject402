@@ -5,7 +5,7 @@
 #include <arpa/inet.h>
 
 #define SIZE 1024
-#define PORT 8080
+
 
 void send_file(FILE *fp, int sockfd)
 {
@@ -24,7 +24,7 @@ void send_file(FILE *fp, int sockfd)
 int main(int argc, char *argv[])
 {
     char *ip = "127.0.0.1";
-    int port = PORT;
+    int port = atoi(argv[2]);
     int e;
 
     int sockfd;
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
         perror("[-]Error in connecting");
         exit(1);
     }
-    printf("[+]Connected to server.\n");
+    printf("[+]Connected to server On Port:%d\n",port);
 
     fp = fopen(filename,"r");
     if (fp==NULL)

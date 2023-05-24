@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
     }
     int port = 8080;
     char cmd1[100];
-    sprintf(cmd1,"server/server %s %d",argv[2],port);
+    sprintf(cmd1,"server/server %s %d %s",argv[2],port,argv[3]);
     char cmd2[100];
-    sprintf(cmd2,"client/client %s %d",argv[1],port);
+    sprintf(cmd2,"client/client %s %d %s",argv[1],port,argv[3]);
     
     int pid = fork();
     if (pid == 0)
